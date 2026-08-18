@@ -1,0 +1,12 @@
+OpenJDK 64-Bit Server VM (25.232-b09) for windows-amd64 JRE (1.8.0_232-b09), built on Oct 18 2019 15:06:13 by "jenkins" with MS VC++ 12.0 (VS2013)
+Memory: 4k page, physical 33174916k(7982752k free), swap 54914612k(7910048k free)
+CommandLine flags: -XX:GCLogFileSize=3145728 -XX:InitialHeapSize=530798656 -XX:MaxHeapSize=8492778496 -XX:NumberOfGCLogFiles=5 -XX:+PrintGC -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:-TraceClassUnloading -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseGCLogFileRotation -XX:-UseLargePagesIndividualAllocation -XX:+UseParallelGC 
+Heap
+ PSYoungGen      total 151552K, used 5202K [0x0000000717400000, 0x0000000721d00000, 0x00000007c0000000)
+  eden space 130048K, 4% used [0x0000000717400000,0x0000000717914928,0x000000071f300000)
+  from space 21504K, 0% used [0x0000000720800000,0x0000000720800000,0x0000000721d00000)
+  to   space 21504K, 0% used [0x000000071f300000,0x000000071f300000,0x0000000720800000)
+ ParOldGen       total 347136K, used 0K [0x00000005c5c00000, 0x00000005daf00000, 0x0000000717400000)
+  object space 347136K, 0% used [0x00000005c5c00000,0x00000005c5c00000,0x00000005daf00000)
+ Metaspace       used 2177K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 231K, capacity 384K, committed 384K, reserved 1048576K

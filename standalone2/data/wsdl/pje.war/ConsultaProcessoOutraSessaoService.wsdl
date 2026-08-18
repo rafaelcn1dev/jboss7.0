@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.cnj.jus.br/consulta-processo-outra-sessao-service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ConsultaProcessoOutraSessaoService" targetNamespace="http://www.cnj.jus.br/consulta-processo-outra-sessao-service/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cnj.jus.br/consulta-processo-outra-sessao-service/" xmlns:ns1="http://webservices.pje.infox.com.br/" elementFormDefault="unqualified" targetNamespace="http://www.cnj.jus.br/consulta-processo-outra-sessao-service/" version="1.0">
+
+  <xs:import namespace="http://webservices.pje.infox.com.br/"/>
+
+  <xs:element name="obterProcessos" type="tns:obterProcessos"/>
+
+  <xs:element name="obterProcessosResponse" type="tns:obterProcessosResponse"/>
+
+  <xs:complexType name="obterProcessos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="consultaProcesso" type="tns:beanConsultaProcesso"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="beanConsultaProcesso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoAssunto" type="xs:string"/>
+      <xs:element minOccurs="0" name="codigoClasseJudicial" type="xs:string"/>
+      <xs:element minOccurs="0" name="cpfCnpj" type="xs:string"/>
+      <xs:element minOccurs="0" name="dataFinal" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="dataInicial" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="letraOab" type="xs:string"/>
+      <xs:element minOccurs="0" name="link" type="xs:string"/>
+      <xs:element minOccurs="0" name="nomeParte" type="xs:string"/>
+      <xs:element minOccurs="0" name="numeroOab" type="xs:string"/>
+      <xs:element minOccurs="0" name="numeroProcesso" type="xs:string"/>
+      <xs:element minOccurs="0" name="ufOab" type="tns:estado"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="estado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codEstado" type="xs:string"/>
+      <xs:element minOccurs="0" name="estado" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obterProcessosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:beanRespostaConsultaProcesso"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservices.pje.infox.com.br/" xmlns:ns1="http://www.cnj.jus.br/consulta-processo-outra-sessao-service/" targetNamespace="http://webservices.pje.infox.com.br/" version="1.0">
+
+  <xs:import namespace="http://www.cnj.jus.br/consulta-processo-outra-sessao-service/"/>
+
+  <xs:element name="obterProcessos" type="tns:obterProcessos"/>
+
+  <xs:element name="obterProcessosResponse" type="tns:obterProcessosResponse"/>
+
+  <xs:complexType name="beanRespostaConsultaProcesso">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="beanDadosProcessos" nillable="true" type="tns:beanDadosProcesso"/>
+      <xs:element minOccurs="0" name="resposta" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="beanDadosProcesso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataDistribuicao" type="xs:dateTime"/>
+      <xs:element name="idProcesso" type="xs:int"/>
+      <xs:element minOccurs="0" name="hash" type="xs:string"/>
+      <xs:element minOccurs="0" name="linkConsulta" type="xs:string"/>
+      <xs:element minOccurs="0" name="nomeClasseJudicial" type="xs:string"/>
+      <xs:element minOccurs="0" name="nomeOrgaoJulgador" type="xs:string"/>
+      <xs:element minOccurs="0" name="numeroProcesso" type="xs:string"/>
+      <xs:element minOccurs="0" name="poloAtivo" type="xs:string"/>
+      <xs:element minOccurs="0" name="poloPassivo" type="xs:string"/>
+      <xs:element name="prioritario" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obterProcessosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:beanRespostaConsultaProcesso"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="obterProcessos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="consultaProcesso" type="tns:beanConsultaProcesso"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="beanConsultaProcesso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoAssunto" type="xs:string"/>
+      <xs:element minOccurs="0" name="codigoClasseJudicial" type="xs:string"/>
+      <xs:element minOccurs="0" name="cpfCnpj" type="xs:string"/>
+      <xs:element minOccurs="0" name="dataFinal" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="dataInicial" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="letraOab" type="xs:string"/>
+      <xs:element minOccurs="0" name="link" type="xs:string"/>
+      <xs:element minOccurs="0" name="nomeParte" type="xs:string"/>
+      <xs:element minOccurs="0" name="numeroOab" type="xs:string"/>
+      <xs:element minOccurs="0" name="numeroProcesso" type="xs:string"/>
+      <xs:element minOccurs="0" name="ufOab" type="ns1:estado"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="obterProcessosResponse">
+    <wsdl:part element="tns:obterProcessosResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="obterProcessos">
+    <wsdl:part element="tns:obterProcessos" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ConsultaProcessoOutraSessao">
+    <wsdl:operation name="obterProcessos">
+      <wsdl:input message="tns:obterProcessos" name="obterProcessos">
+    </wsdl:input>
+      <wsdl:output message="tns:obterProcessosResponse" name="obterProcessosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultaProcessoOutraSessaoServiceSoapBinding" type="tns:ConsultaProcessoOutraSessao">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="obterProcessos">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="obterProcessos">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="obterProcessosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultaProcessoOutraSessaoService">
+    <wsdl:port binding="tns:ConsultaProcessoOutraSessaoServiceSoapBinding" name="ConsultaProcessoOutraSessaoPort">
+      <soap:address location="http://jbossws.undefined.host:8081/pje/ConsultaProcessoOutraSessao"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

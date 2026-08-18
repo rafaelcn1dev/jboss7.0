@@ -1,0 +1,19 @@
+module add --name=org.postgresql --resources=postgresql-9.4.1212.jar --dependencies=javax.api,javax.transaction.api
+deploy install-mojarra-1.2_15.cli
+batch
+/subsystem=weld:write-attribute(name=require-bean-descriptor,value=true)
+/subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",   driver-module-name="org.postgresql",driver-datasource-class-name=org.postgresql.Driver)
+/subsystem=datasources/jdbc-driver=postgres_xa:add(driver-name="postgres_xa",driver-module-name="org.postgresql",driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+/subsystem=datasources/xa-data-source="pjeDS":add(use-ccm="true",use-java-context="true",enabled="true",jndi-name=java:/pjeDS,max-pool-size=10,min-pool-size=2,prepared-statements-cache-size=0,share-prepared-statements=false,driver-name=postgres_xa,user-name="postgres",password="any_password",check-valid-connection-sql="select 1",new-connection-sql="set search_path=client,core,jt,criminal,public,acl",valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker,pool-prefill=true)
+/subsystem=datasources/xa-data-source=pjeDS/xa-datasource-properties=prepareThreshold:add(value=0)
+/subsystem=datasources/xa-data-source=pjeDS/xa-datasource-properties=url:add(value=jdbc:postgresql://localhost:5432/pje)
+/subsystem=datasources/xa-data-source="pjeLogDS":add(use-ccm="true",use-java-context="true",enabled="true",jndi-name=java:/pjeLogDS,max-pool-size=10,min-pool-size=2,prepared-statements-cache-size=0,share-prepared-statements=false,driver-name=postgres_xa,user-name="postgres",password="any_password",check-valid-connection-sql="select 1",new-connection-sql="set search_path=client,core,jt,criminal,public,acl",valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker,pool-prefill=true)
+/subsystem=datasources/xa-data-source=pjeLogDS/xa-datasource-properties=prepareThreshold:add(value=0)
+/subsystem=datasources/xa-data-source=pjeLogDS/xa-datasource-properties=url:add(value=jdbc:postgresql://localhost:5432/pje_log)
+run-batch 
+
+
+
+
+
+
